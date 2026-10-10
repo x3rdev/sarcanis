@@ -6,17 +6,18 @@
 
 | Name | Code | Assets | Info |
 |---|:---:|:---:|---|
-| Bone needle | ⬜ | ⬜ | |
-| Bone shard | ⬜ | ⬜ | |
-| Infected flesh | ⬜ | ⬜ | |
-| Twisted bone | ⬜ | ⬜ | |
-| Sinew strand | ⬜ | ⬜ | |
-| Mucous membrane | ⬜ | ⬜ | |
-| Sharp bone | ⬜ | ⬜ | |
-| Glial mass | ⬜ | ⬜ | |
-| Symbiotic tumor | ⬜ | ⬜ | |
-| Twitching leg | ⬜ | ⬜ | |
-| Amorphous flesh | ⬜ | ⬜ | |
+| Bone needle | ⬜ | ✅ | |
+| Bone shard | ⬜ | ✅ | |
+| Infected flesh | ⬜ | ✅ | |
+| Twisted bone | ⬜ | ✅ | |
+| Sinew strand | ⬜ | ✅ | |
+| Mucous membrane | ⬜ | ✅ | |
+| Sharp bone | ⬜ | ✅ | |
+| Glial mass | ⬜ | ✅ | |
+| Symbiotic tumor | ⬜ | ✅ | |
+| Twitching leg | ⬜ | ✅ | |
+| Amorphous flesh | ⬜ | ✅ | |
+| Cooked amorphous flesh | ⬜ | ✅ | |
 
 ## Items
 
