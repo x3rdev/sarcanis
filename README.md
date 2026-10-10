@@ -6,26 +6,26 @@ A mod about various living things made of a twisted mix of flesh, bones and sine
 
 ## Resources
 
-- [x] Bone needle
-- [x] Bone shard
-- [x] Infected flesh
-- [x] Twisted bone
-- [x] Sinew strand
-- [x] Mucous membrane
-- [x] Sharp bone
-- [x] Glial mass
-- [x] Symbiotic tumor
-- [x] Twitching leg
-- [x] Amorphous flesh
+- [ ] Bone needle
+- [ ] Bone shard
+- [ ] Infected flesh
+- [ ] Twisted bone
+- [ ] Sinew strand
+- [ ] Mucous membrane
+- [ ] Sharp bone
+- [ ] Glial mass
+- [ ] Symbiotic tumor
+- [ ] Twitching leg
+- [ ] Amorphous flesh
 
 ## Items
 
-- [x] **Bone syringe** — main mod tool. Draws up liquids (player's blood, Ichor) and injects them into something, including the player.
-- [x] **Centipede greatsword** — melee weapon
-- [x] **Flesh halberd** — melee weapon
-- [x] **Flesh lance** — melee weapon
-- [x] **Flesh guitar** — ranged weapon; only works paired with Living amplifiers (up to two)
-- [x] **Bio-cannon** — ranged weapon shooting bioplasma clots
+- [ ] **Bone syringe** — main mod tool. Draws up liquids (player's blood, Ichor) and injects them into something, including the player.
+- [ ] **Centipede greatsword** — melee weapon
+- [ ] **Flesh halberd** — melee weapon
+- [ ] **Flesh lance** — melee weapon
+- [ ] **Flesh guitar** — ranged weapon; only works paired with Living amplifiers (up to two)
+- [ ] **Bio-cannon** — ranged weapon shooting bioplasma clots
 - [ ] **Flesh shield**
 - [ ] **Flesh armor** — armor made of flesh and bones
 - [ ] **Amniotic backpack** — lets the player store gear during long travels
@@ -61,25 +61,25 @@ A mod about various living things made of a twisted mix of flesh, bones and sine
 - [ ] **Fleshy door**
 - [ ] **Bone block**
 - [ ] **Flesh block**
-- [x] **Membrane block**
+- [ ] **Membrane block**
 
 ## Mobs
 
 > Mob names are WIP — current names are placeholders.
 
-- [x] **Infected** — slow, stupid zombie-like mob. Found in groups of 3–4.
-- [x] **Flying bug** — big flying bug that sneaks up and grabs a player or an Infected
+- [ ] **Infected** — slow, stupid zombie-like mob. Found in groups of 3–4.
+- [ ] **Flying bug** — big flying bug that sneaks up and grabs a player or an Infected
   - Grabbed Infected are controlled by the Bug; the Bug can't be killed while its Infected is alive
   - A grabbed player takes damage every tick until death; can break free by pressing Shift repeatedly
-- [x] **Bacteriophage** — defenseless on its own, but takes control of nearby zombies, making them faster, stronger and smarter and forcing them to protect it. Its Ichor contains a unique virus strain that can be turned into Rage mixture.
-- [x] **Big fleshy T-rex**
+- [ ] **Bacteriophage** — defenseless on its own, but takes control of nearby zombies, making them faster, stronger and smarter and forcing them to protect it. Its Ichor contains a unique virus strain that can be turned into Rage mixture.
+- [ ] **Big fleshy T-rex**
 - [ ] **Mancubus-like mob** — two bio-plasma cannons instead of arms. Its corpse can be healed in the Amniotic chamber and used as weaponized armor.
 - [ ] **Big bird-like creature** with multiple bio-plasma cannons
 - [ ] **Big armored worm** — bone armor plates on its segments must be broken before it can be damaged
 - [ ] **Quadrupedal monster**
 - [ ] **Giant kaiju monster**
 - [ ] **Meat golem** — artificially grown mob
-- [x] **Living amplifier** — artificially grown mob paired with the Flesh guitar. Shoots sound waves while the player plays the guitar. Up to two at a time.
+- [ ] **Living amplifier** — artificially grown mob paired with the Flesh guitar. Shoots sound waves while the player plays the guitar. Up to two at a time.
 
 ## Rage
 
