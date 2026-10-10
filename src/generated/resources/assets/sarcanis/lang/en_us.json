@@ -1,0 +1,17 @@
+{
+  "block.sarcanis.flesh_block": "Flesh Block",
+  "block.sarcanis.membrane_block": "Membrane Block",
+  "item.sarcanis.amorphous_flesh": "Amorphous Flesh",
+  "item.sarcanis.bone_needle": "Bone Needle",
+  "item.sarcanis.bone_shard": "Bone Shard",
+  "item.sarcanis.cooked_amorphous_flesh": "Cooked Amorphous Flesh",
+  "item.sarcanis.glial_mass": "Glial Mass",
+  "item.sarcanis.infected_flesh": "Infected Flesh",
+  "item.sarcanis.mucous_membrane": "Mucous Membrane",
+  "item.sarcanis.sharp_bone": "Sharp Bone",
+  "item.sarcanis.sinew_strand": "Sinew Strand",
+  "item.sarcanis.symbiotic_tumor": "Symbiotic Tumor",
+  "item.sarcanis.twisted_bone": "Twisted Bone",
+  "item.sarcanis.twitching_leg": "Twitching Leg",
+  "itemGroup.sarcanis": "Sarcanis"
+}
