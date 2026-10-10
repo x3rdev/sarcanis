@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "sarcanis:block/membrane_block"
+    }
+  }
+}

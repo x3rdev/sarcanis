@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "sarcanis:block/flesh_block"
+    }
+  }
+}

@@ -46,6 +46,7 @@ public class ItemRegistry {
                 .title(Component.translatable("itemGroup." + Sarcanis.MODID))
                 .displayItems((displayParameters, output) -> {
                     ItemRegistry.ITEMS.getEntries().forEach(itemRegistryObject -> output.accept(itemRegistryObject.get()));
+                    BlockItemRegistry.BLOCK_ITEMS.getEntries().forEach(itemRegistryObject -> output.accept(itemRegistryObject.get()));
                 })
                 .build());
     }

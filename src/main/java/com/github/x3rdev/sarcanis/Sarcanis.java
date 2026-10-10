@@ -1,5 +1,7 @@
 package com.github.x3rdev.sarcanis;
 
+import com.github.x3rdev.sarcanis.common.registry.BlockItemRegistry;
+import com.github.x3rdev.sarcanis.common.registry.BlockRegistry;
 import com.github.x3rdev.sarcanis.common.registry.ItemRegistry;
 import com.mojang.logging.LogUtils;
 import net.neoforged.bus.api.IEventBus;
@@ -14,6 +16,8 @@ public class Sarcanis {
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public Sarcanis(IEventBus modEventBus, ModContainer modContainer) {
+        BlockItemRegistry.BLOCK_ITEMS.register(modEventBus);
+        BlockRegistry.BLOCKS.register(modEventBus);
         ItemRegistry.ITEMS.register(modEventBus);
         ItemRegistry.ModItemTab.CREATIVE_MODE_TABS.register(modEventBus);
 
