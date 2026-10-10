@@ -1,9 +1,5 @@
 # Sarcanis
 
-*Working title: WFT (Weird Fleshy Things)*
-
-A mod about various living things made of a twisted mix of flesh, bones and sinews.
-
 ⬜ = to do · ✅ = done · — = not applicable
 
 ## Resources
