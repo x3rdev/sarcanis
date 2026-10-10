@@ -1,5 +1,15 @@
 {
-  "itemGroup.sarcanis": "Example Mod Tab",
-  "block.sarcanis.example_block": "Example Block",
-  "item.sarcanis.example_item": "Example Item"
+  "itemGroup.sarcanis": "Sarcanis",
+  "item.sarcanis.bone_needle": "Bone Needle",
+  "item.sarcanis.bone_shard": "Bone Shard",
+  "item.sarcanis.infected_flesh": "Infected Flesh",
+  "item.sarcanis.twisted_bone": "Twisted Bone",
+  "item.sarcanis.sinew_strand": "Sinew Strand",
+  "item.sarcanis.mucous_membrane": "Mucous Membrane",
+  "item.sarcanis.sharp_bone": "Sharp Bone",
+  "item.sarcanis.glial_mass": "Glial Mass",
+  "item.sarcanis.symbiotic_tumor": "Symbiotic Tumor",
+  "item.sarcanis.twitching_leg": "Twitching Leg",
+  "item.sarcanis.amorphous_flesh": "Amorphous Flesh",
+  "item.sarcanis.cooked_amorphous_flesh": "Cooked Amorphous Flesh"
 }
