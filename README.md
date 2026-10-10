@@ -61,7 +61,6 @@
 | Fleshy pump | ⬜ | ⬜ | Pumps Nutrient broth through fleshy pipes. Powered by redstone. Occasionally steals a bit of Nutrient broth. |
 | Amniotic chest | ⬜ | ⬜ | Stores fleshy gear; must be filled with Nutrient broth |
 | Fleshy door | ⬜ | ⬜ | |
-| Bone block | ⬜ | ⬜ | |
 | Flesh block | ⬜ | ⬜ | |
 | Membrane block | ⬜ | ⬜ | |
 
