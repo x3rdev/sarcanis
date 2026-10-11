@@ -16,6 +16,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public record DaggerTargetEntity(String targetUUID) implements CustomPacketPayload {
@@ -48,17 +50,17 @@ public record DaggerTargetEntity(String targetUUID) implements CustomPacketPaylo
                 // if we add multiple dagger-type weapons, make the cooldown apply to all of them so the player cannot switch between daggers to bypass cooldowns
                 player.getCooldowns().addCooldown(player.getItemInHand(InteractionHand.MAIN_HAND).getItem(), (int) (dagger.dashCooldown * 20));
             }
-            double xsize, ysize;
+            double xsize, zsize;
             if (entity instanceof LivingEntity livingEntity) {
                 xsize = livingEntity.getHitbox().getXsize();
-                ysize = livingEntity.getHitbox().getYsize();
+                zsize = livingEntity.getHitbox().getZsize();
             }
             else {
                 xsize = entity.getBoundingBox().getXsize();
-                ysize = entity.getBoundingBox().getYsize();
+                zsize = entity.getBoundingBox().getZsize();
             }
             // simple serverside validation for whether the dash can reasonably happen
-            double entityDiagonal = Math.sqrt(xsize * xsize + ysize * ysize);
+            double entityDiagonal = Math.sqrt(xsize * xsize + zsize * zsize);
             if (distance >= reach + entityDiagonal) return;
             /* future attack pattern for dagger when thrown dagger entities are implemented
 

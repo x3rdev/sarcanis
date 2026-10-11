@@ -1,10 +1,13 @@
 package com.github.x3rdev.sarcanis.common.item;
 
 import com.github.x3rdev.sarcanis.common.network.DaggerTargetEntity;
+import com.github.x3rdev.sarcanis.common.utility.ObjIntMap;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ItemParticleOption;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -18,11 +21,17 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.*;
 import net.neoforged.neoforge.network.PacketDistributor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Dagger extends Item {
     public final int totalCharges;
     public int charges;
     public double dashRange;
     public double dashCooldown;
+    private boolean isPlayingParticles = false;
+    private int modTick;
+    private int binaryRandom;
 
     public Dagger(Properties properties, int totalCharges, double dashRange, double dashCooldown) {
         super(properties);
@@ -89,6 +98,67 @@ public class Dagger extends Item {
             return BlockHitResult.miss(location, direction, BlockPos.containing(location));
         } else {
             return hitResult;
+        }
+    }
+
+    @Override
+    public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
+        super.inventoryTick(stack, level, entity, slotId, isSelected);
+        if (!level.isClientSide()) return;
+        if (!isSelected) return;
+        if (entity instanceof Player player) {
+            if (player.getCooldowns().isOnCooldown(stack.getItem())) return;
+            Minecraft instance = Minecraft.getInstance();
+            long tick = instance.player.tickCount;
+            float delta = instance.getTimer().getGameTimeDeltaTicks();
+            HitResult hitResult = unboundedRayCast(instance.player, delta, instance.getCameraEntity(), this.dashRange);
+            if (hitResult instanceof EntityHitResult result && result.getEntity() instanceof LivingEntity livingEntity) {
+                // number of particles in the ring
+                int iMax = 20;
+                if (!isPlayingParticles) {
+                    this.modTick = (int) (tick % iMax);
+                    this.binaryRandom = Math.random() + 0.5 > 1 ? 1 : -1;
+                    this.isPlayingParticles = true;
+                }
+                Vec3 entityPos = livingEntity.position();
+
+                List<ObjIntMap<Vec3>> particleLocations = new ArrayList<>();
+                for (int i = 0; i < iMax; i++) {
+                    double entitySizeX = livingEntity.getBoundingBox().getXsize();
+                    double entitySizeZ = livingEntity.getBoundingBox().getZsize();
+                    double entitySize = Math.sqrt(entitySizeX * entitySizeX + entitySizeZ * entitySizeZ);
+                    double lookAngle = player.getXRot() * Math.PI/180;
+                    double iAngle = this.binaryRandom * 2 * Math.PI * i/iMax;
+                    double scaleFactor = entitySize * Math.sqrt(0.5);
+                    ObjIntMap<Vec3> particleLocation1 = new ObjIntMap<>(
+                            new Vec3(
+                                    Math.sin(lookAngle + iAngle),
+                                    entity.getBoundingBox().getYsize() * 0.5,
+                                    Math.cos(lookAngle + iAngle)
+                            ).multiply(scaleFactor, 1, scaleFactor).add(entityPos),
+                            i
+                    );
+                    particleLocations.add(particleLocation1);
+                    // places particles on the opposite side, can be removed if effect is undesired
+                    ObjIntMap<Vec3> particleLocation2 = new ObjIntMap<>(
+                            new Vec3(
+                                    -Math.sin(lookAngle + iAngle),
+                                    entity.getBoundingBox().getYsize() * 0.5,
+                                    -Math.cos(lookAngle + iAngle)
+                            ).multiply(scaleFactor, 1, scaleFactor).add(entityPos),
+                            i
+                    );
+                    particleLocations.add(particleLocation2);
+                }
+                particleLocations.forEach(particleLocationMap -> {
+                    if (particleLocationMap.value() == (int) ((tick - this.modTick) % iMax)) {
+                        Vec3 particleLocation = particleLocationMap.object();
+                        // flame particle placeholder
+                        level.addParticle(ParticleTypes.FLAME, particleLocation.x, particleLocation.y, particleLocation.z, 0, 0, 0);
+                    }
+                });
+            }
+            else isPlayingParticles = false;
         }
     }
 }
