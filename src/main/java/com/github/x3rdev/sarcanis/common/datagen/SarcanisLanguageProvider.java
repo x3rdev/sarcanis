@@ -36,6 +36,7 @@ public class SarcanisLanguageProvider extends LanguageProvider {
         addItem(ItemRegistry.AMORPHOUS_FLESH, "Amorphous Flesh");
         addItem(ItemRegistry.COOKED_AMORPHOUS_FLESH, "Cooked Amorphous Flesh");
         addItem(ItemRegistry.MOSQUITO_SPAWN_EGG, "Mosquito Spawn Egg");
+        addItem(ItemRegistry.TEST_DAGGER, "Test Dagger");
 
         // Entity
         addEntityType(EntityRegistry.MOSQUITO, "Mosquito");

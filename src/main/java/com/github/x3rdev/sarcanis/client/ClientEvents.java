@@ -4,7 +4,6 @@ import com.github.x3rdev.sarcanis.client.renderer.MosquitoRenderer;
 import com.github.x3rdev.sarcanis.common.registry.EntityRegistry;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
 public class ClientEvents {
 

@@ -1,6 +1,7 @@
 package com.github.x3rdev.sarcanis;
 
 import com.github.x3rdev.sarcanis.common.CommonEvents;
+import com.github.x3rdev.sarcanis.common.network.Networks;
 import com.github.x3rdev.sarcanis.common.registry.BlockItemRegistry;
 import com.github.x3rdev.sarcanis.common.registry.BlockRegistry;
 import com.github.x3rdev.sarcanis.common.registry.EntityRegistry;
@@ -30,6 +31,7 @@ public class Sarcanis {
         ItemRegistry.ModItemTab.CREATIVE_MODE_TABS.register(modEventBus);
 
         modEventBus.addListener(CommonEvents::createEntityAttributes);
+        modEventBus.addListener(Networks::register);
 
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
