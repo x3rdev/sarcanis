@@ -6,12 +6,19 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ItemRegistry {
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(Registries.ITEM, Sarcanis.MODID);
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(Registries.ITEM, Sarcanis.MOD_ID);
 
+    public static final DeferredHolder<Item, Item> BONE_SYRINGE_EMPTY = ITEMS.register("bone_syringe_empty",
+            () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final DeferredHolder<Item, Item> BONE_SYRINGE_BLOOD = ITEMS.register("bone_syringe_blood",
+            () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final DeferredHolder<Item, Item> BONE_SYRINGE_ICHOR = ITEMS.register("bone_syringe_ichor",
+            () -> new Item(new Item.Properties().stacksTo(1)));
     public static final DeferredHolder<Item, Item> BONE_NEEDLE = ITEMS.register("bone_needle",
             () -> new Item(new Item.Properties()));
     public static final DeferredHolder<Item, Item> BONE_SHARD = ITEMS.register("bone_shard",
@@ -36,14 +43,16 @@ public class ItemRegistry {
             () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(3).saturationModifier(0.3F).build())));
     public static final DeferredHolder<Item, Item> COOKED_AMORPHOUS_FLESH = ITEMS.register("cooked_amorphous_flesh",
             () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(8).saturationModifier(0.8F).build())));
+    public static final DeferredHolder<Item, Item> MOSQUITO_SPAWN_EGG = ITEMS.register("mosquito_spawn_egg",
+            () -> new DeferredSpawnEggItem(EntityRegistry.MOSQUITO, 0x4A1F1A, 0xD9822B, new Item.Properties()));
 
     public static class ModItemTab {
 
-        public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Sarcanis.MODID);
+        public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Sarcanis.MOD_ID);
 
         public static final DeferredHolder<CreativeModeTab, CreativeModeTab> SARCANIS_ITEM_TAB = CREATIVE_MODE_TABS.register("main", () -> CreativeModeTab.builder()
                 .icon(ItemRegistry.INFECTED_FLESH.get()::getDefaultInstance)
-                .title(Component.translatable("itemGroup." + Sarcanis.MODID))
+                .title(Component.translatable("itemGroup." + Sarcanis.MOD_ID))
                 .displayItems((displayParameters, output) -> {
                     ItemRegistry.ITEMS.getEntries().forEach(itemRegistryObject -> output.accept(itemRegistryObject.get()));
                     BlockItemRegistry.BLOCK_ITEMS.getEntries().forEach(itemRegistryObject -> output.accept(itemRegistryObject.get()));

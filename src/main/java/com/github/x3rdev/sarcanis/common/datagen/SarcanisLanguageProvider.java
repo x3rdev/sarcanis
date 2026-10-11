@@ -2,6 +2,7 @@ package com.github.x3rdev.sarcanis.common.datagen;
 
 import com.github.x3rdev.sarcanis.Sarcanis;
 import com.github.x3rdev.sarcanis.common.registry.BlockRegistry;
+import com.github.x3rdev.sarcanis.common.registry.EntityRegistry;
 import com.github.x3rdev.sarcanis.common.registry.ItemRegistry;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
@@ -9,7 +10,7 @@ import net.neoforged.neoforge.common.data.LanguageProvider;
 public class SarcanisLanguageProvider extends LanguageProvider {
 
     public SarcanisLanguageProvider(PackOutput output) {
-        super(output, Sarcanis.MODID, "en_us");
+        super(output, Sarcanis.MOD_ID, "en_us");
     }
 
     @Override
@@ -19,6 +20,9 @@ public class SarcanisLanguageProvider extends LanguageProvider {
         addBlock(BlockRegistry.MEMBRANE_BLOCK, "Membrane Block");
 
         // Item
+        addItem(ItemRegistry.BONE_SYRINGE_EMPTY, "Bone Syringe");
+        addItem(ItemRegistry.BONE_SYRINGE_BLOOD, "Bone Syringe of Blood");
+        addItem(ItemRegistry.BONE_SYRINGE_ICHOR, "Bone Syringe of Ichor");
         addItem(ItemRegistry.BONE_NEEDLE, "Bone Needle");
         addItem(ItemRegistry.BONE_SHARD, "Bone Shard");
         addItem(ItemRegistry.INFECTED_FLESH, "Infected Flesh");
@@ -31,7 +35,11 @@ public class SarcanisLanguageProvider extends LanguageProvider {
         addItem(ItemRegistry.TWITCHING_LEG, "Twitching Leg");
         addItem(ItemRegistry.AMORPHOUS_FLESH, "Amorphous Flesh");
         addItem(ItemRegistry.COOKED_AMORPHOUS_FLESH, "Cooked Amorphous Flesh");
+        addItem(ItemRegistry.MOSQUITO_SPAWN_EGG, "Mosquito Spawn Egg");
 
-        add("itemGroup." + Sarcanis.MODID, "Sarcanis");
+        // Entity
+        addEntityType(EntityRegistry.MOSQUITO, "Mosquito");
+
+        add("itemGroup." + Sarcanis.MOD_ID, "Sarcanis");
     }
 }
