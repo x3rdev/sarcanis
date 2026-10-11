@@ -1,6 +1,7 @@
 package com.github.x3rdev.sarcanis.common.registry;
 
 import com.github.x3rdev.sarcanis.Sarcanis;
+import com.github.x3rdev.sarcanis.common.entity.Biophage;
 import com.github.x3rdev.sarcanis.common.entity.Mosquito;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EntityType;
@@ -16,4 +17,10 @@ public class EntityRegistry {
                             .sized(3, 3)
                             .build("mosquito")
             );
+
+    public static final DeferredHolder<EntityType<?>, EntityType<Biophage>> BIOPHAGE = ENTITY_TYPES.register("biophage",
+            () -> EntityType.Builder.of(Biophage::new, MobCategory.MONSTER)
+                    .sized(2, 5)
+                    .build("biophage")
+    );
 }

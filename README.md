@@ -78,19 +78,19 @@
 
 > Mob names are WIP — current names are placeholders.
 
-| Name | Code | Assets | Info |
-|---|:---:|:---:|---|
-| Infected | ⬜ | ⬜ | Slow, stupid zombie-like mob. Found in groups of 3–4. |
-| Flying bug | ⬜ | ⬜ | Big flying bug that sneaks up and grabs a player or an Infected. Grabbed Infected are controlled by the Bug, and the Bug can't be killed while its Infected is alive. A grabbed player takes damage every tick until death and can break free by pressing Shift repeatedly. |
-| Bacteriophage | ⬜ | ⬜ | Defenseless on its own, but takes control of nearby zombies, making them faster, stronger and smarter and forcing them to protect it. Its Ichor contains a unique virus strain that can be turned into Rage mixture. |
-| Big fleshy T-rex | ⬜ | ⬜ | |
-| Mancubus-like mob | ⬜ | ⬜ | Two bio-plasma cannons instead of arms. Its corpse can be healed in the Amniotic chamber and used as weaponized armor. |
-| Big bird-like creature | ⬜ | ⬜ | Multiple bio-plasma cannons |
-| Big armored worm | ⬜ | ⬜ | Bone armor plates on its segments must be broken before it can be damaged |
-| Quadrupedal monster | ⬜ | ⬜ | |
-| Giant kaiju monster | ⬜ | ⬜ | |
-| Meat golem | ⬜ | ⬜ | Artificially grown mob |
-| Living amplifier | ⬜ | ⬜ | Artificially grown mob paired with the Flesh guitar. Shoots sound waves while the player plays the guitar. Up to two at a time. |
+| Name                   | Code | Assets | Info |
+|------------------------|:---:|:------:|---|
+| Infected               | ⬜ |   ⬜    | Slow, stupid zombie-like mob. Found in groups of 3–4. |
+| Mosquito               | ⬜ |   ✅    | Big flying bug that sneaks up and grabs a player or an Infected. Grabbed Infected are controlled by the Bug, and the Bug can't be killed while its Infected is alive. A grabbed player takes damage every tick until death and can break free by pressing Shift repeatedly. |
+| Bacteriophage          | ⬜ |   ✅    | Defenseless on its own, but takes control of nearby zombies, making them faster, stronger and smarter and forcing them to protect it. Its Ichor contains a unique virus strain that can be turned into Rage mixture. |
+| Big fleshy T-rex       | ⬜ |   ⬜    | |
+| Mancubus-like mob      | ⬜ |   ⬜    | Two bio-plasma cannons instead of arms. Its corpse can be healed in the Amniotic chamber and used as weaponized armor. |
+| Big bird-like creature | ⬜ |   ⬜    | Multiple bio-plasma cannons |
+| Big armored worm       | ⬜ |   ⬜    | Bone armor plates on its segments must be broken before it can be damaged |
+| Quadrupedal monster    | ⬜ |   ⬜    | |
+| Giant kaiju monster    | ⬜ |   ⬜    | |
+| Meat golem             | ⬜ |   ⬜    | Artificially grown mob |
+| Living amplifier       | ⬜ |   ⬜    | Artificially grown mob paired with the Flesh guitar. Shoots sound waves while the player plays the guitar. Up to two at a time. |
 
 ## Rage
 

@@ -1,8 +1,10 @@
 {
   "block.sarcanis.flesh_block": "Flesh Block",
   "block.sarcanis.membrane_block": "Membrane Block",
+  "entity.sarcanis.biophage": "Biophage",
   "entity.sarcanis.mosquito": "Mosquito",
   "item.sarcanis.amorphous_flesh": "Amorphous Flesh",
+  "item.sarcanis.biophage_spawn_egg": "Biophage Spawn Egg",
   "item.sarcanis.bone_needle": "Bone Needle",
   "item.sarcanis.bone_shard": "Bone Shard",
   "item.sarcanis.bone_syringe_blood": "Bone Syringe of Blood",
@@ -16,6 +18,7 @@
   "item.sarcanis.sharp_bone": "Sharp Bone",
   "item.sarcanis.sinew_strand": "Sinew Strand",
   "item.sarcanis.symbiotic_tumor": "Symbiotic Tumor",
+  "item.sarcanis.test_dagger": "Test Dagger",
   "item.sarcanis.twisted_bone": "Twisted Bone",
   "item.sarcanis.twitching_leg": "Twitching Leg",
   "itemGroup.sarcanis": "Sarcanis"

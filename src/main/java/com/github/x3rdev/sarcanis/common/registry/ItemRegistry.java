@@ -46,6 +46,8 @@ public class ItemRegistry {
             () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(8).saturationModifier(0.8F).build())));
     public static final DeferredHolder<Item, Item> MOSQUITO_SPAWN_EGG = ITEMS.register("mosquito_spawn_egg",
             () -> new DeferredSpawnEggItem(EntityRegistry.MOSQUITO, 0x4A1F1A, 0xD9822B, new Item.Properties()));
+    public static final DeferredHolder<Item, Item> BIOPHAGE_SPAWN_EGG = ITEMS.register("biophage_spawn_egg",
+            () -> new DeferredSpawnEggItem(EntityRegistry.BIOPHAGE, 0xE8C9A0, 0x7A1E1E, new Item.Properties()));
 
     public static final DeferredHolder<Item, Dagger> TEST_DAGGER = ITEMS.register("test_dagger",
             () -> new Dagger(new Item.Properties(), 3, 15D, 10D));

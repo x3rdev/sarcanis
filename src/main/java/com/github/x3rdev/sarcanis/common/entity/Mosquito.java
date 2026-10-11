@@ -1,7 +1,6 @@
 package com.github.x3rdev.sarcanis.common.entity;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.Brain;
@@ -10,10 +9,8 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.FlyingMoveControl;
 import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
-import net.minecraft.world.entity.ai.control.FlyingMoveControl;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.BlockState;
 import net.tslat.smartbrainlib.api.SmartBrainOwner;
 import net.tslat.smartbrainlib.api.core.BrainActivityGroup;
@@ -84,6 +81,14 @@ public class Mosquito extends Monster implements GeoEntity, SmartBrainOwner<Mosq
     }
 
     @Override
+    public List<? extends ExtendedSensor<? extends Mosquito>> getSensors() {
+        return List.of(
+                new NearbyPlayersSensor<>(),
+                new HurtBySensor<>()
+        );
+    }
+
+    @Override
     public BrainActivityGroup<? extends Mosquito> getCoreTasks() {
         return BrainActivityGroup.coreTasks(
                 new LookAtTarget<>(),
@@ -107,13 +112,6 @@ public class Mosquito extends Monster implements GeoEntity, SmartBrainOwner<Mosq
         return SmartBrainOwner.super.getFightTasks();
     }
 
-    @Override
-    public List<? extends ExtendedSensor<? extends Mosquito>> getSensors() {
-        return List.of(
-                new NearbyPlayersSensor<>(),
-                new HurtBySensor<>()
-        );
-    }
 
     @Override
     protected void checkFallDamage(double y, boolean onGround, BlockState state, BlockPos pos) {
