@@ -49,20 +49,20 @@
 
 ## Blocks / Multiblocks
 
-| Name | Code | Assets | Info |
-|---|:---:|:---:|---|
-| Purifier | ⬜ | ⬜ | Living block turning Ichor into Nutrient broth. Fueled with meat or Amorphous flesh (like coal in a furnace). |
-| Bone cauldron | ⬜ | ⬜ | Produces Ichor by combining water and Infected flesh over time |
-| Recycler | ⬜ | ⬜ | Multiblock shredder that recycles Malformed mass, Mancubus corpse, flesh gear and dead flesh gear into random fleshy resources |
-| Amniotic container | ⬜ | ⬜ | Nutrient broth storage |
+| Name | Code | Assets | Info                                                                                                                                                                         |
+|---|:---:|:---:|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Purifier | ⬜ | ⬜ | Living block turning Ichor into Nutrient broth. Fueled with meat or Amorphous flesh (like coal in a furnace).                                                                |
+| Bone cauldron | ⬜ | ⬜ | Produces Ichor by combining water and Infected flesh over time                                                                                                               |
+| Recycler | ⬜ | ⬜ | Multiblock shredder that recycles Malformed mass, Mancubus corpse, flesh gear and dead flesh gear into random fleshy resources                                               |
+| Amniotic container | ⬜ | ⬜ | Nutrient broth storage                                                                                                                                                       |
 | Amniotic chamber | ⬜ | ⬜ | The mod's main multiblock (3x3x5, flesh blocks + membrane blocks). Grows fleshy living gear (weapons, armor, etc.) and some mobs. See [Amniotic Chamber](#amniotic-chamber). |
-| Fleshy pipe | ⬜ | ⬜ | Transfers Nutrient broth |
-| Fleshy valve | ⬜ | ⬜ | Controls Nutrient broth flow |
-| Fleshy pump | ⬜ | ⬜ | Pumps Nutrient broth through fleshy pipes. Powered by redstone. Occasionally steals a bit of Nutrient broth. |
-| Amniotic chest | ⬜ | ⬜ | Stores fleshy gear; must be filled with Nutrient broth |
-| Fleshy door | ⬜ | ⬜ | |
-| Flesh block | ⬜ | ⬜ | |
-| Membrane block | ⬜ | ⬜ | |
+| Fleshy pipe | ⬜ | ⬜ | Transfers Nutrient broth                                                                                                                                                     |
+| Fleshy valve | ⬜ | ⬜ | Controls Nutrient broth flow                                                                                                                                                 |
+| Fleshy pump | ⬜ | ⬜ | Pumps Nutrient broth through fleshy pipes. Powered by redstone. Occasionally steals a bit of Nutrient broth.                                                                 |
+| Amniotic chest | ⬜ | ⬜ | stores up to 2^31 items (int limit), requires nutrients to function, can be combined into array                                                                              |
+| Fleshy door | ⬜ | ⬜ |                                                                                                                                                                              |
+| Flesh block | ⬜ | ⬜ |                                                                                                                                                                              |
+| Membrane block | ⬜ | ⬜ |                                                                                                                                                                              |
 
 ## Amniotic Chamber
 
