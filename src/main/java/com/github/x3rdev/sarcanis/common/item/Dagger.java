@@ -1,5 +1,6 @@
 package com.github.x3rdev.sarcanis.common.item;
 
+import com.github.x3rdev.sarcanis.common.entity.DaggerEntity;
 import com.github.x3rdev.sarcanis.common.network.DaggerTargetEntity;
 import com.github.x3rdev.sarcanis.common.utility.ObjIntMap;
 import net.minecraft.client.Minecraft;
@@ -49,15 +50,26 @@ public class Dagger extends Item {
         Minecraft instance = Minecraft.getInstance();
         float delta = instance.getTimer().getGameTimeDeltaTicks();
         HitResult hitResult = unboundedRayCast(instance.player, delta, instance.getCameraEntity(), this.dashRange);
-        if (hitResult instanceof EntityHitResult result && result.getEntity() instanceof LivingEntity entity) {
-            String entityUUID = entity.getUUID().toString();
-            PacketDistributor.sendToServer(new DaggerTargetEntity(entityUUID));
-            return InteractionResultHolder.success(item);
+        if (hitResult instanceof EntityHitResult result) {
+            Entity entity = result.getEntity();
+            if (isValidTarget(entity)) {
+                String entityUUID = entity.getUUID().toString();
+                PacketDistributor.sendToServer(new DaggerTargetEntity(entityUUID));
+                return InteractionResultHolder.success(item);
+            }
+
         }
         else {
-            // dagger throw logic
+            // don't currently know how to make this depend on user keybinds
+            if (instance.mouseHandler.isLeftPressed()) {
+
+            }
         }
         return InteractionResultHolder.pass(item);
+    }
+
+    private static boolean isValidTarget(Entity entity) {
+        return entity instanceof LivingEntity || entity instanceof DaggerEntity;
     }
 
     private static HitResult unboundedRayCast(LocalPlayer player, float partialTicks, Entity cameraEntity, double castRange) {
@@ -79,7 +91,6 @@ public class Dagger extends Item {
 
         Vec3 vec31 = entity.getViewVector(partialTick);
         Vec3 vec32 = vec3.add(vec31.x * d0, vec31.y * d0, vec31.z * d0);
-        float f = 1.0F;
         AABB aabb = entity.getBoundingBox().expandTowards(vec31.scale(d0)).inflate(1.0, 1.0, 1.0);
         EntityHitResult entityhitresult = ProjectileUtil.getEntityHitResult(
                 entity, vec3, vec32, aabb, p_234237_ -> !p_234237_.isSpectator() && p_234237_.isPickable(), d1
@@ -95,9 +106,8 @@ public class Dagger extends Item {
             Vec3 location = hitResult.getLocation();
             Direction direction = Direction.getNearest(location.x - from.x, location.y - from.y, location.z - from.z);
             return BlockHitResult.miss(location, direction, BlockPos.containing(location));
-        } else {
-            return hitResult;
         }
+        else return hitResult;
     }
 
     @Override
@@ -135,22 +145,12 @@ public class Dagger extends Item {
                                     entity.getBoundingBox().getYsize() * 0.5,
                                     Math.cos(lookAngle + iAngle)
                             ).multiply(scaleFactor, 1, scaleFactor).add(entityPos),
-                            i
+                            i % (iMax>>1)
                     );
                     particleLocations.add(particleLocation1);
-                    // places particles on the opposite side, can be removed if effect is undesired
-                    ObjIntMap<Vec3> particleLocation2 = new ObjIntMap<>(
-                            new Vec3(
-                                    -Math.sin(lookAngle + iAngle),
-                                    entity.getBoundingBox().getYsize() * 0.5,
-                                    -Math.cos(lookAngle + iAngle)
-                            ).multiply(scaleFactor, 1, scaleFactor).add(entityPos),
-                            i
-                    );
-                    particleLocations.add(particleLocation2);
                 }
                 particleLocations.forEach(particleLocationMap -> {
-                    if (particleLocationMap.value() == (int) ((tick - this.modTick) % iMax)) {
+                    if (particleLocationMap.value() == (int) ((tick - this.modTick) % (iMax>>1))) {
                         Vec3 particleLocation = particleLocationMap.object();
                         // flame particle placeholder
                         level.addParticle(ParticleTypes.FLAME, particleLocation.x, particleLocation.y, particleLocation.z, 0, 0, 0);

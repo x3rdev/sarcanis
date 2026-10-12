@@ -27,7 +27,7 @@ public class EntityRegistry {
 
     public static final DeferredHolder<EntityType<?>, EntityType<DaggerEntity>> DAGGER_ENTITY = ENTITY_TYPES.register("dagger_entity",
             () -> EntityType.Builder.of(DaggerEntity::new, MobCategory.MISC)
-                    .sized(0.5f, 1)
+                    .sized(0.5f, 0.5f)
                     .build("dagger_entity")
     );
 }
