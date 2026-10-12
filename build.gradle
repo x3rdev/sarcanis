@@ -28,10 +28,14 @@ repositories {
         name = "BlameJared (JEI)"
         url = "https://maven.blamejared.com/"
     }
+    maven {
+        name = "Minecraft Forge (TerraBlender)"
+        url = "https://maven.minecraftforge.net/"
+    }
 }
 
 base {
-    archivesName = mod_id
+    archivesName = mod_id+"-neoforge-1.21.1"
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
@@ -112,13 +116,16 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 
 dependencies {
-    // GeckoLib - entity/block animations (mod + API bundled in one artifact)
+    // GeckoLib
     implementation "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
 
-    // SmartBrainLib - AI/behavior-tree framework for entities
+    // SmartBrainLib
     implementation "net.tslat.smartbrainlib:SmartBrainLib-neoforge-${minecraft_version}:${sbl_version}"
 
-    // JEI - API at compile time, full mod at runtime
+    // TerraBlender
+    implementation "com.github.glitchfiend:TerraBlender-neoforge:${minecraft_version}-${terra_blender_version}"
+
+    // JEI
     compileOnly "mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}"
     runtimeOnly "mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}"
 }
@@ -138,7 +145,8 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
                              mod_authors            : mod_authors,
                              mod_description        : mod_description,
                              geckolib_version_range : geckolib_version_range,
-                             sbl_version_range      : sbl_version_range]
+                             sbl_version_range      : sbl_version_range,
+                             terra_blender_version_range : terra_blender_version_range]
     inputs.properties replaceProperties
     expand replaceProperties
     from "src/main/templates"
