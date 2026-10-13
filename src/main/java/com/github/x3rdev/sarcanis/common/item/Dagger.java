@@ -32,6 +32,8 @@ public class Dagger extends Item {
     private boolean isPlayingParticles = false;
     private int modTick;
     private int binaryRandom;
+    public List<Entity> targetedEntities = new ArrayList<>();
+    public List<DaggerEntity> thrownDaggers =  new ArrayList<>();
 
     public Dagger(Properties properties, int totalCharges, double dashRange, double dashCooldown) {
         super(properties);
@@ -60,12 +62,64 @@ public class Dagger extends Item {
 
         }
         else {
+            if (this.charges < 1) return InteractionResultHolder.pass(item);
             // don't currently know how to make this depend on user keybinds
             if (instance.mouseHandler.isLeftPressed()) {
 
             }
         }
         return InteractionResultHolder.pass(item);
+    }
+
+    @Override
+    public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
+        super.inventoryTick(stack, level, entity, slotId, isSelected);
+        if (!level.isClientSide()) return;
+        if (!isSelected) return;
+        if (entity instanceof Player player) {
+            if (player.getCooldowns().isOnCooldown(stack.getItem())) return;
+            Minecraft instance = Minecraft.getInstance();
+            long tick = instance.player.tickCount;
+            float delta = instance.getTimer().getGameTimeDeltaTicks();
+            HitResult hitResult = unboundedRayCast(instance.player, delta, instance.getCameraEntity(), this.dashRange);
+            if (hitResult instanceof EntityHitResult result && result.getEntity() instanceof LivingEntity livingEntity) {
+                // number of particles in the ring
+                int iMax = 20;
+                if (!isPlayingParticles) {
+                    this.modTick = (int) (tick % iMax);
+                    this.binaryRandom = Math.random() > 0.5 ? 1 : -1;
+                    this.isPlayingParticles = true;
+                }
+                Vec3 entityPos = livingEntity.position();
+
+                List<ObjIntMap<Vec3>> particleLocations = new ArrayList<>();
+                for (int i = 0; i < iMax; i++) {
+                    double entitySizeX = livingEntity.getBoundingBox().getXsize();
+                    double entitySizeZ = livingEntity.getBoundingBox().getZsize();
+                    double entitySize = Math.sqrt(entitySizeX * entitySizeX + entitySizeZ * entitySizeZ);
+                    double lookAngle = player.getXRot() * Math.PI/180;
+                    double iAngle = this.binaryRandom * 2 * Math.PI * i/iMax;
+                    double scaleFactor = entitySize * Math.sqrt(0.5);
+                    ObjIntMap<Vec3> particleLocation1 = new ObjIntMap<>(
+                            new Vec3(
+                                    Math.sin(lookAngle + iAngle),
+                                    entity.getBoundingBox().getYsize() * 0.5,
+                                    Math.cos(lookAngle + iAngle)
+                            ).multiply(scaleFactor, 1, scaleFactor).add(entityPos),
+                            i % (iMax>>1)
+                    );
+                    particleLocations.add(particleLocation1);
+                }
+                particleLocations.forEach(particleLocationMap -> {
+                    if (particleLocationMap.value() == (int) ((tick - this.modTick) % (iMax>>1))) {
+                        Vec3 particleLocation = particleLocationMap.object();
+                        // flame particle placeholder
+                        level.addParticle(ParticleTypes.FLAME, particleLocation.x, particleLocation.y, particleLocation.z, 0, 0, 0);
+                    }
+                });
+            }
+            else isPlayingParticles = false;
+        }
     }
 
     private static boolean isValidTarget(Entity entity) {
@@ -108,56 +162,5 @@ public class Dagger extends Item {
             return BlockHitResult.miss(location, direction, BlockPos.containing(location));
         }
         else return hitResult;
-    }
-
-    @Override
-    public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
-        super.inventoryTick(stack, level, entity, slotId, isSelected);
-        if (!level.isClientSide()) return;
-        if (!isSelected) return;
-        if (entity instanceof Player player) {
-            if (player.getCooldowns().isOnCooldown(stack.getItem())) return;
-            Minecraft instance = Minecraft.getInstance();
-            long tick = instance.player.tickCount;
-            float delta = instance.getTimer().getGameTimeDeltaTicks();
-            HitResult hitResult = unboundedRayCast(instance.player, delta, instance.getCameraEntity(), this.dashRange);
-            if (hitResult instanceof EntityHitResult result && result.getEntity() instanceof LivingEntity livingEntity) {
-                // number of particles in the ring
-                int iMax = 20;
-                if (!isPlayingParticles) {
-                    this.modTick = (int) (tick % iMax);
-                    this.binaryRandom = Math.random() + 0.5 > 1 ? 1 : -1;
-                    this.isPlayingParticles = true;
-                }
-                Vec3 entityPos = livingEntity.position();
-
-                List<ObjIntMap<Vec3>> particleLocations = new ArrayList<>();
-                for (int i = 0; i < iMax; i++) {
-                    double entitySizeX = livingEntity.getBoundingBox().getXsize();
-                    double entitySizeZ = livingEntity.getBoundingBox().getZsize();
-                    double entitySize = Math.sqrt(entitySizeX * entitySizeX + entitySizeZ * entitySizeZ);
-                    double lookAngle = player.getXRot() * Math.PI/180;
-                    double iAngle = this.binaryRandom * 2 * Math.PI * i/iMax;
-                    double scaleFactor = entitySize * Math.sqrt(0.5);
-                    ObjIntMap<Vec3> particleLocation1 = new ObjIntMap<>(
-                            new Vec3(
-                                    Math.sin(lookAngle + iAngle),
-                                    entity.getBoundingBox().getYsize() * 0.5,
-                                    Math.cos(lookAngle + iAngle)
-                            ).multiply(scaleFactor, 1, scaleFactor).add(entityPos),
-                            i % (iMax>>1)
-                    );
-                    particleLocations.add(particleLocation1);
-                }
-                particleLocations.forEach(particleLocationMap -> {
-                    if (particleLocationMap.value() == (int) ((tick - this.modTick) % (iMax>>1))) {
-                        Vec3 particleLocation = particleLocationMap.object();
-                        // flame particle placeholder
-                        level.addParticle(ParticleTypes.FLAME, particleLocation.x, particleLocation.y, particleLocation.z, 0, 0, 0);
-                    }
-                });
-            }
-            else isPlayingParticles = false;
-        }
     }
 }
