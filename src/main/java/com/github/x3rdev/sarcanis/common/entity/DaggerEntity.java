@@ -23,6 +23,10 @@ public class DaggerEntity extends Entity implements GeoEntity {
         this.tick = level.getServer().getTickCount();
     }
 
+    public static DaggerEntity registerDaggerEntity(EntityType<?> entityType, Level level) {
+        return new DaggerEntity(entityType, level);
+    }
+
     public DaggerEntity(Level level, Dagger source) {
         this(EntityRegistry.DAGGER_ENTITY.get(), level);
         this.source = source;
