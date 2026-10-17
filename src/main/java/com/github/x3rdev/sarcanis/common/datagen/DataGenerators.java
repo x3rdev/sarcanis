@@ -10,7 +10,7 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 import java.util.concurrent.CompletableFuture;
 
-@EventBusSubscriber(modid = Sarcanis.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = Sarcanis.MOD_ID)
 public final class DataGenerators {
 
     @SubscribeEvent
@@ -21,5 +21,6 @@ public final class DataGenerators {
 
         generator.addProvider(event.includeClient(), new SarcanisLanguageProvider(packOutput));
         generator.addProvider(event.includeServer(), new SarcanisLootTableProvider(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), new SarcanisWorldGenProvider(packOutput, lookupProvider));
     }
 }

@@ -37,6 +37,8 @@ public class SarcanisLootTableProvider extends LootTableProvider {
         protected void generate() {
             dropSelf(BlockRegistry.FLESH_BLOCK.get());
             dropSelf(BlockRegistry.MEMBRANE_BLOCK.get());
+            dropSelf(BlockRegistry.PURIFIER_BLOCK.get());
+            dropSelf(BlockRegistry.BONE_CAULDRON.get());
         }
     }
 }

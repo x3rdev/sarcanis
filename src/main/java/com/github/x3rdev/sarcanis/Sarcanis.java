@@ -31,6 +31,7 @@ public class Sarcanis {
         ItemRegistry.ModItemTab.CREATIVE_MODE_TABS.register(modEventBus);
 
         modEventBus.addListener(CommonEvents::createEntityAttributes);
+        modEventBus.addListener(CommonEvents::commonSetup);
         modEventBus.addListener(Networks::register);
 
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);

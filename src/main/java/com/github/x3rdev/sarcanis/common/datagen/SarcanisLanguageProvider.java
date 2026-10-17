@@ -43,6 +43,8 @@ public class SarcanisLanguageProvider extends LanguageProvider {
         addEntityType(EntityRegistry.MOSQUITO, "Mosquito");
         addEntityType(EntityRegistry.BIOPHAGE, "Biophage");
 
+        add("biome." + Sarcanis.MOD_ID + ".fleshlands", "Fleshlands");
+
         add("itemGroup." + Sarcanis.MOD_ID, "Sarcanis");
     }
 }

@@ -1,3 +1,5 @@
-// 1.21.1	2026-10-10T10:50:47.1577899	Loot Tables
+// 1.21.1	2026-10-12T11:22:30.378716	Loot Tables
+41a86dddc130c3ed16c5fa6ae901be0e62af0c57 data/sarcanis/loot_table/blocks/bone_cauldron.json
 4d1f5d852ac317f49972257de3380acba4dd3384 data/sarcanis/loot_table/blocks/flesh_block.json
 6b5ab114ffd0e88db08d9ea4cccad1a6dfc83952 data/sarcanis/loot_table/blocks/membrane_block.json
+f09b03d13cc4ebd84d0fa145e3be8eb3c6523c77 data/sarcanis/loot_table/blocks/purifier_block.json
