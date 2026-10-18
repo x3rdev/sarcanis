@@ -2,6 +2,8 @@ package com.github.x3rdev.sarcanis.common.datagen;
 
 import com.github.x3rdev.sarcanis.Sarcanis;
 import com.github.x3rdev.sarcanis.common.worldgen.SarcanisBiomes;
+import com.github.x3rdev.sarcanis.common.worldgen.SarcanisConfiguredFeatures;
+import com.github.x3rdev.sarcanis.common.worldgen.SarcanisPlacedFeatures;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
@@ -13,6 +15,8 @@ import java.util.concurrent.CompletableFuture;
 
 public class SarcanisWorldGenProvider extends DatapackBuiltinEntriesProvider {
     private static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
+            .add(Registries.CONFIGURED_FEATURE, SarcanisConfiguredFeatures::bootstrap)
+            .add(Registries.PLACED_FEATURE, SarcanisPlacedFeatures::bootstrap)
             .add(Registries.BIOME, SarcanisBiomes::bootstrap);
 
     public SarcanisWorldGenProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {

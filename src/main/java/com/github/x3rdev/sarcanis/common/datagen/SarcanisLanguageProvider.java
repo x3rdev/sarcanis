@@ -18,6 +18,17 @@ public class SarcanisLanguageProvider extends LanguageProvider {
         // Block
         addBlock(BlockRegistry.FLESH_BLOCK, "Flesh Block");
         addBlock(BlockRegistry.MEMBRANE_BLOCK, "Membrane Block");
+        addBlock(BlockRegistry.ICHOR_TREE_TRUNK_BOTTOM, "Ichor Tree Trunk Bottom");
+        addBlock(BlockRegistry.ICHOR_TREE_TRUNK_MIDDLE, "Ichor Tree Trunk Middle");
+        addBlock(BlockRegistry.ICHOR_TREE_TRUNK_TOP, "Ichor Tree Trunk Top");
+        addBlock(BlockRegistry.ICHOR_TREE_RECEPTACLE, "Ichor Tree Receptacle");
+        addBlock(BlockRegistry.ICHOR_TREE_EMPTY_PRODUCER, "Ichor Tree Empty Producer");
+        addBlock(BlockRegistry.ICHOR_TREE_FERTILE_BRANCH, "Ichor Tree Fertile Branch");
+        addBlock(BlockRegistry.ICHOR_TREE_OVERGROWN_BRANCH, "Ichor Tree Overgrown Branch");
+        addBlock(BlockRegistry.ICHOR_TREE_OVERGROWN_FERTILE_BRANCH, "Ichor Tree Overgrown Fertile Branch");
+        addBlock(BlockRegistry.ICHOR_TREE_BULB, "Ichor Tree Bulb");
+        addBlock(BlockRegistry.ICHOR_TREE_FRUIT, "Ichor Tree Fruit");
+        addBlock(BlockRegistry.ICHOR_TREE_VINE, "Ichor Tree Vine");
 
         // Item
         addItem(ItemRegistry.BONE_SYRINGE_EMPTY, "Bone Syringe");

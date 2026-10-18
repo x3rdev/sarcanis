@@ -1,5 +1,16 @@
-// 1.21.1	2026-10-12T11:22:30.378716	Loot Tables
+// 1.21.1	2026-10-18T12:07:29.1212436	Loot Tables
 41a86dddc130c3ed16c5fa6ae901be0e62af0c57 data/sarcanis/loot_table/blocks/bone_cauldron.json
 4d1f5d852ac317f49972257de3380acba4dd3384 data/sarcanis/loot_table/blocks/flesh_block.json
+e6a134bb23f74c74da41fa66e6173db5ba0ca052 data/sarcanis/loot_table/blocks/ichor_tree_bulb.json
+d02b5aa21e0f0abb956b4f9e045e575bc805262c data/sarcanis/loot_table/blocks/ichor_tree_empty_producer.json
+07aa19d69aa69434e814303ab8b53c9968c745ab data/sarcanis/loot_table/blocks/ichor_tree_fertile_branch.json
+07cbffa1f013dee351e867754abd0cb6c04a5d80 data/sarcanis/loot_table/blocks/ichor_tree_fruit.json
+88497e37fcd49a76372e4660b44eda657106bba9 data/sarcanis/loot_table/blocks/ichor_tree_overgrown_branch.json
+a74f4b8d621b32b94efe67ac78ebda4399af0ab9 data/sarcanis/loot_table/blocks/ichor_tree_overgrown_fertile_branch.json
+93dec28a47c6f8ac8d28e77ef5dcadb555a7b129 data/sarcanis/loot_table/blocks/ichor_tree_receptacle.json
+8b1a3496f60169f8be801476f567bdadc80949ec data/sarcanis/loot_table/blocks/ichor_tree_trunk_bottom.json
+ea720ee328f4fe0539a10606f0b685d8e5152b38 data/sarcanis/loot_table/blocks/ichor_tree_trunk_middle.json
+696181dd0b78c731b0e7e655551a74c732e91f44 data/sarcanis/loot_table/blocks/ichor_tree_trunk_top.json
+f67eaa16c705c11bc1da830dd841b60855197353 data/sarcanis/loot_table/blocks/ichor_tree_vine.json
 6b5ab114ffd0e88db08d9ea4cccad1a6dfc83952 data/sarcanis/loot_table/blocks/membrane_block.json
 f09b03d13cc4ebd84d0fa145e3be8eb3c6523c77 data/sarcanis/loot_table/blocks/purifier_block.json

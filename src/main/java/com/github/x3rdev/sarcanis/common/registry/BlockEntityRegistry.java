@@ -2,6 +2,7 @@ package com.github.x3rdev.sarcanis.common.registry;
 
 import com.github.x3rdev.sarcanis.Sarcanis;
 import com.github.x3rdev.sarcanis.common.blockentity.BoneCauldronBlockEntity;
+import com.github.x3rdev.sarcanis.common.blockentity.IchorTreePartBlockEntity;
 import com.github.x3rdev.sarcanis.common.blockentity.PurifierBlockEntity;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -23,6 +24,23 @@ public class BlockEntityRegistry {
     public static final Supplier<BlockEntityType<BoneCauldronBlockEntity>> BONE_CAULDRON_BLOCK_ENTITY = BLOCK_ENTITY_TYPES.register(
             "bone_cauldron_block_entity",
             () -> BlockEntityType.Builder.of(BoneCauldronBlockEntity::new, BlockRegistry.BONE_CAULDRON.get()).build(null)
+    );
+
+    public static final Supplier<BlockEntityType<IchorTreePartBlockEntity>> ICHOR_TREE_PART = BLOCK_ENTITY_TYPES.register(
+            "ichor_tree_part",
+            () -> BlockEntityType.Builder.of(IchorTreePartBlockEntity::new,
+                    BlockRegistry.ICHOR_TREE_TRUNK_BOTTOM.get(),
+                    BlockRegistry.ICHOR_TREE_TRUNK_MIDDLE.get(),
+                    BlockRegistry.ICHOR_TREE_TRUNK_TOP.get(),
+                    BlockRegistry.ICHOR_TREE_RECEPTACLE.get(),
+                    BlockRegistry.ICHOR_TREE_EMPTY_PRODUCER.get(),
+                    BlockRegistry.ICHOR_TREE_FERTILE_BRANCH.get(),
+                    BlockRegistry.ICHOR_TREE_OVERGROWN_BRANCH.get(),
+                    BlockRegistry.ICHOR_TREE_OVERGROWN_FERTILE_BRANCH.get(),
+                    BlockRegistry.ICHOR_TREE_BULB.get(),
+                    BlockRegistry.ICHOR_TREE_FRUIT.get(),
+                    BlockRegistry.ICHOR_TREE_VINE.get()
+            ).build(null)
     );
 
     // static method for use in Block classes overriding getTicker()

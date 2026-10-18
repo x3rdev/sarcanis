@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "sarcanis:block/ichor_tree_empty_producer"
+    },
+    "facing=east": {
+      "model": "sarcanis:block/ichor_tree_empty_producer"
+    },
+    "facing=south": {
+      "model": "sarcanis:block/ichor_tree_empty_producer"
+    },
+    "facing=west": {
+      "model": "sarcanis:block/ichor_tree_empty_producer"
+    }
+  }
+}

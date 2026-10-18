@@ -1,0 +1,47 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.ichor_tree_receptacle",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "branch generator",
+					"pivot": [0, 27, 0],
+					"cubes": [
+						{
+							"origin": [-7.25, 0, -7.25],
+							"size": [14.5, 16, 14.5],
+							"uv": {
+								"north": {"uv": [24, 0], "uv_size": [14, 16]},
+								"east": {"uv": [24, 0], "uv_size": [14, 16]},
+								"south": {"uv": [24, 0], "uv_size": [14, 16]},
+								"west": {"uv": [24, 0], "uv_size": [14, 16]},
+								"up": {"uv": [38, 0], "uv_size": [14, 14]},
+								"down": {"uv": [38, 14], "uv_size": [14, -14]}
+							}
+						},
+						{
+							"origin": [-9, 16, -9],
+							"size": [18, 3, 18],
+							"uv": {
+								"north": {"uv": [14, 16], "uv_size": [18, 3]},
+								"east": {"uv": [14, 16], "uv_size": [18, 3]},
+								"south": {"uv": [14, 16], "uv_size": [18, 3]},
+								"west": {"uv": [14, 16], "uv_size": [18, 3]},
+								"up": {"uv": [24, 43], "uv_size": [18, 18]},
+								"down": {"uv": [24, 61], "uv_size": [18, -18]}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

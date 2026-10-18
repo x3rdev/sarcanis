@@ -39,6 +39,17 @@ public class SarcanisLootTableProvider extends LootTableProvider {
             dropSelf(BlockRegistry.MEMBRANE_BLOCK.get());
             dropSelf(BlockRegistry.PURIFIER_BLOCK.get());
             dropSelf(BlockRegistry.BONE_CAULDRON.get());
+            dropSelf(BlockRegistry.ICHOR_TREE_TRUNK_BOTTOM.get());
+            dropSelf(BlockRegistry.ICHOR_TREE_TRUNK_MIDDLE.get());
+            dropSelf(BlockRegistry.ICHOR_TREE_TRUNK_TOP.get());
+            dropSelf(BlockRegistry.ICHOR_TREE_RECEPTACLE.get());
+            dropSelf(BlockRegistry.ICHOR_TREE_EMPTY_PRODUCER.get());
+            dropSelf(BlockRegistry.ICHOR_TREE_FERTILE_BRANCH.get());
+            dropSelf(BlockRegistry.ICHOR_TREE_OVERGROWN_BRANCH.get());
+            dropSelf(BlockRegistry.ICHOR_TREE_OVERGROWN_FERTILE_BRANCH.get());
+            dropSelf(BlockRegistry.ICHOR_TREE_BULB.get());
+            dropSelf(BlockRegistry.ICHOR_TREE_FRUIT.get());
+            dropSelf(BlockRegistry.ICHOR_TREE_VINE.get());
         }
     }
 }

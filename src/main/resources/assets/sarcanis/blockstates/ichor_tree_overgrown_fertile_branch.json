@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "sarcanis:block/ichor_tree_overgrown_fertile_branch"
+    },
+    "facing=east": {
+      "model": "sarcanis:block/ichor_tree_overgrown_fertile_branch"
+    },
+    "facing=south": {
+      "model": "sarcanis:block/ichor_tree_overgrown_fertile_branch"
+    },
+    "facing=west": {
+      "model": "sarcanis:block/ichor_tree_overgrown_fertile_branch"
+    }
+  }
+}

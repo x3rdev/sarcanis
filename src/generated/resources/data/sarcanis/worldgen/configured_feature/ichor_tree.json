@@ -1,0 +1,6 @@
+{
+  "type": "sarcanis:ichor_tree",
+  "config": {
+    "fertility": 0.6
+  }
+}
