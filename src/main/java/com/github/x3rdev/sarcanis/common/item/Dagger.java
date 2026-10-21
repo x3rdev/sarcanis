@@ -29,6 +29,7 @@ public class Dagger extends Item {
     public int charges;
     public double dashRange;
     public double dashCooldown;
+    public float damage;
     private boolean isPlayingParticles = false;
     private int modTick;
     private int binaryRandom;
