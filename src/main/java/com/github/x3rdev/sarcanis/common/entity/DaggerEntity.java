@@ -4,8 +4,12 @@ import com.github.x3rdev.sarcanis.common.item.Dagger;
 import com.github.x3rdev.sarcanis.common.registry.EntityRegistry;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
@@ -14,23 +18,24 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 
 public class DaggerEntity extends Entity implements GeoEntity {
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
-    private int tick;
+    private final int tick;
+    private int life = 0;
     private Entity target;
-    private Dagger source;
+    private ItemStack source;
+    private Dagger dagger;
 
     public DaggerEntity(EntityType<?> entityType, Level level) {
         super(entityType, level);
         this.tick = level.getServer().getTickCount();
     }
 
-    public static DaggerEntity registerDaggerEntity(EntityType<?> entityType, Level level) {
-        return new DaggerEntity(entityType, level);
-    }
-
-    public DaggerEntity(Level level, Dagger source) {
+    public DaggerEntity(Level level, ItemStack source) {
         this(EntityRegistry.DAGGER_ENTITY.get(), level);
         this.source = source;
-        source.thrownDaggers.add(this);
+        if (source.getItem() instanceof Dagger) {
+            this.dagger =  (Dagger) source.getItem();
+            this.dagger.thrownDaggers.add(this);
+        }
     }
 
     /*
@@ -44,15 +49,26 @@ public class DaggerEntity extends Entity implements GeoEntity {
     @Override
     public void tick() {
         super.tick();
-        if (this.tick > 600) {
-            this.source.thrownDaggers.remove(this);
-            this.source.charges++;
-            if (this.target != null) {
-                this.source.targetedEntities.remove(this.target);
-            }
+        if (this.life > 600) {
+            this.dagger.thrownDaggers.remove(this);
+            this.dagger.charges++;
             this.discard();
         }
-        this.tick++;
+        this.life++;
+    }
+
+    private void hitEntity(Entity target) {
+        this.dagger.thrownDaggers.remove(this);
+        this.dagger.targetedEntities.add(target);
+        this.damageEntity(target);
+        this.discard();
+    }
+
+    private void damageEntity(Entity target){
+        if (target instanceof LivingEntity entity) {
+            //DamageSource source = entity.damageSources().playerAttack();
+            //entity.hurt(source, this.dagger.damage);
+        }
     }
 
     @Override
